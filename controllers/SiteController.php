@@ -63,7 +63,8 @@ class SiteController extends Controller
     {
         $cache = Yii::$app->getCache() ;
         $cache->add('name','zhangsan');
-        return 'test , see , see ...';
+        var_dump($data = $cache->get('name'));
+        #return 'test , see , see ...';
         //return $this->render('index');
     }
 
