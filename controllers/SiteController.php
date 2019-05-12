@@ -61,6 +61,8 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
+        $cache = Yii::$app->getCache() ;
+        $cache->add('name','zhangsan');
         return 'test , see , see ...';
         //return $this->render('index');
     }
