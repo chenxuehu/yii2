@@ -63,7 +63,16 @@ class SiteController extends Controller
     {
         $cache = Yii::$app->getCache() ;
         $cache->add('name','zhangsan');
-        var_dump($data = $cache->get('name'));
+        var_dump($cache->get('name'));
+        $data = $cache->get('age');
+        if ($data === false) {
+            // $data 已过期，或者在缓存中找不到
+            echo '没有数据，正在缓存数据...';
+            $cache->set('age', '28', 10);
+        }else{
+            echo "已经读取到数据...";
+            echo $cache->get('age');
+        }
         #return 'test , see , see ...';
         //return $this->render('index');
     }
